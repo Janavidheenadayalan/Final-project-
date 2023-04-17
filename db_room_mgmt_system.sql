@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2023 at 06:08 AM
+-- Generation Time: Apr 15, 2023 at 05:43 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -44,13 +44,30 @@ CREATE TABLE IF NOT EXISTS `tbl_customer_det` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `tbl_customer_det`
+-- Table structure for table `tbl_payment_detail`
 --
 
-INSERT INTO `tbl_customer_det` (`Id`, `Name`, `FirstName`, `LastName`, `Email`, `Phone`, `Password`, `City`, `Address`, `Roles`) VALUES
-(1, 'Azar', 'Azaruddin', 'Bhadgavkar', 'azaruddinbhadgavkar1111@gmail.com', '08408098804', '8408098804', 'Murgud', 'Mahadevnagar', 'Rooms Owner'),
-(2, 'Azaruddin', 'Azaruddin', 'Bhadgavkar', 'azaruddinbhadgavkar1111@gmail.com', '08408098804', '8408098804', 'Murgud', 'Mahadevnagar', 'Tanants');
+DROP TABLE IF EXISTS `tbl_payment_detail`;
+CREATE TABLE IF NOT EXISTS `tbl_payment_detail` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Cust_id` int(11) DEFAULT NULL,
+  `Room_id` int(11) DEFAULT NULL,
+  `StartDate` date DEFAULT NULL,
+  `PayAmount` decimal(10,2) DEFAULT 0.00,
+  `DueAmount` decimal(10,2) DEFAULT 0.00,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_payment_detail`
+--
+
+INSERT INTO `tbl_payment_detail` (`ID`, `Cust_id`, `Room_id`, `StartDate`, `PayAmount`, `DueAmount`) VALUES
+(1, 1, 1, '2023-04-14', '6600.00', '0.00'),
+(2, 2, 1, '2023-04-15', '6600.00', '0.00');
 
 -- --------------------------------------------------------
 
@@ -67,6 +84,33 @@ CREATE TABLE IF NOT EXISTS `tbl_rooms_det` (
   `Rent_ID` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_rooms_details`
+--
+
+DROP TABLE IF EXISTS `tbl_rooms_details`;
+CREATE TABLE IF NOT EXISTS `tbl_rooms_details` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `RoomCopacity` int(11) DEFAULT NULL,
+  `Rant` decimal(10,2) DEFAULT 0.00,
+  `Electricity` decimal(10,2) DEFAULT 0.00,
+  `WaterSupply` decimal(10,2) DEFAULT 0.00,
+  `Total` decimal(10,2) DEFAULT 0.00,
+  `Image` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_rooms_details`
+--
+
+INSERT INTO `tbl_rooms_details` (`ID`, `RoomCopacity`, `Rant`, `Electricity`, `WaterSupply`, `Total`, `Image`) VALUES
+(1, 4, '6000.00', '200.00', '400.00', '6600.00', '/Images/Room/Room_1.jpg'),
+(2, 8, '4500.00', '200.00', '400.00', '5100.00', '/Images/Room/Room_2.jpg'),
+(3, 3, '8000.00', '200.00', '400.00', '8600.00', '/Images/Room/Room_3.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -141,7 +141,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BillPayment.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\PayDetail.cs" />
+    <Compile Include="Models\RoomDetails.cs" />
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -155,6 +158,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Hostel Image.png" />
+    <Content Include="Images\Room\Room_1.jpg" />
+    <Content Include="Images\Room\Room_2.jpg" />
+    <Content Include="Images\Room\Room_3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -187,6 +193,9 @@
     <Content Include="Views\Rooms\Index.cshtml" />
     <Content Include="Views\Rooms\CustomerList.cshtml" />
     <Content Include="Views\Rooms\RoomsDetails.cshtml" />
+    <Content Include="Views\Rooms\RentDetails.cshtml" />
+    <Content Include="Views\Rooms\Payment.cshtml" />
+    <Content Include="Views\Rooms\BillReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
